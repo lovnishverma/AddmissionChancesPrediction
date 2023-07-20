@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import LogisticRegression
 
 app = Flask(__name__)
 
@@ -25,11 +25,11 @@ def predict():
     df = pd.read_csv('admission.csv')
 
     # Prepare the data
-    X = df[['gre', 'toefl', 'ur', 'cgpa', 'research']]
-    y = df['coa']
+    X=df[:,:5]
+    y=df[:,-1]
 
     # Create a random forest classifier model
-    model = RandomForestClassifier()
+    model = LogisticRegression()
 
     # Train the model on the entire dataset
     model.fit(X, y)
