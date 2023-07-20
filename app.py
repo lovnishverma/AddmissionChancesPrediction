@@ -13,7 +13,7 @@ def predict():
     return render_template('predict.html')
 
 @app.route('/cp', methods=['POST'])
-def predict_admission():
+def admission():
     gre = eval(request.form.get("gre"))
     toefl = eval(request.form.get("toefl"))
     ur= eval(request.form.get("ur"))
@@ -22,9 +22,9 @@ def predict_admission():
 
     url = "predict_admission.csv"
     df = pd.read_csv(url)
-    X = df.drop(['coa'], axis='columns')
-    Y = df["coa"]
- 
+   # Prepare the data
+    X = df[['gre','toefl', 'ur', 'cgpa','research']]
+    y = df['coa']
     model = LinearRegression()
     model.fit(X, Y)
 
