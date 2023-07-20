@@ -23,9 +23,8 @@ def predict_admission():
 
     url = "predict_admission.csv"
     df = pd.read_csv(url)
-    X = df.drop(['Chance_of_admit'], axis='columns')
-    Y = df["Chance_of_admit"]
-
+    X = df.drop(['Chance_of_Admit'], axis='columns')
+    Y = df["Chance_of_Admit"]
  
     model = LinearRegression()
     model.fit(X, Y)
