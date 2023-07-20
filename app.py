@@ -14,11 +14,12 @@ def predict():
 
 @app.route('/cp', methods=['POST'])
 def caloriesburntpredict():
-    Age = eval(request.form.get("Age"))
-    Duration = eval(request.form.get("Duration"))
-    Heart_Rate = eval(request.form.get("Heart_Rate"))
-    Body_Temp = eval(request.form.get("Body_Temp"))
-
+    GRE_score = eval(request.form.get("GRE_score"))
+    TOEFL = eval(request.form.get("TOEFL"))
+    University_rating= eval(request.form.get("University_rating"))
+    CGPA = eval(request.form.get("CGPA"))
+    Research = eval(request.form.get("Research"))
+    Chance_of_admit = eval(request.form.get(""))
 
     url = "cbp.csv"
     df = pd.read_csv(url)
@@ -30,7 +31,7 @@ def caloriesburntpredict():
     model.fit(X, Y)
 
   
-    arr = model.predict([[Age, Duration, Heart_Rate, Body_Temp]])
+    arr = model.predict([[GRE_score,TOEFL, University_rating, CGPA,Research]])
 
    
     return render_template("calorie.html", data=arr[0])
