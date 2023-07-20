@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request
 import pandas as pd
-from sklearn.ensemble import LogisticRegression
+from sklearn.linear_model import LinearRegression
 
 app = Flask(__name__)
 
@@ -29,7 +29,7 @@ def predict():
     y=df[:,-1]
 
     # Create a random forest classifier model
-    model = LogisticRegression()
+    model = LinearRegression()
 
     # Train the model on the entire dataset
     model.fit(X, y)
@@ -38,7 +38,7 @@ def predict():
     new_data = [[gre, toefl, ur, cgpa, research]]
     prediction = int(model.predict(new_data)[0])
 
-    return render_template('predict.html', prediction=prediction)
+    return render_template('predict.html')
 
 
 if __name__ == '__main__':
