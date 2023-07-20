@@ -33,9 +33,10 @@
          
     </form>
     <center>
-   <h1>
-     {{prediction}}
-      </h1>   </center>
+    {% if prediction %}
+    <p>Predicted Chance of Admission: {{ prediction }}%</p>
+    {% endif %} 
+    </center>
    
     
   </body>
