@@ -21,9 +21,9 @@ def predict():
     cgpa = eval(request.form.get("cgpa"))
     research = eval(request.form.get("research"))
 
-    # Load the loan dataset
-    df = pd.read_csv('admission.csv')
-
+    # Load the dataset
+    url="admission.csv"
+    df=pd.read_csv(url, header=None)
     # Prepare the data
     X=df[:,:5]
     y=df[:,-1]
