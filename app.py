@@ -14,12 +14,11 @@ def predict():
 
 @app.route('/cp', methods=['POST'])
 def predict_admission():
-    GRE_score = eval(request.form.get("GRE_score"))
-    TOEFL = eval(request.form.get("TOEFL"))
-    University_rating= eval(request.form.get("University_rating"))
-    CGPA = eval(request.form.get("CGPA"))
-    Research = eval(request.form.get("Research"))
-    Chance_of_admit = eval(request.form.get("Chance_of_admit"))
+    GRE_score = eval(request.form.get("gre"))
+    TOEFL = eval(request.form.get("toefl"))
+    University_rating= eval(request.form.get("ur"))
+    CGPA = eval(request.form.get("cgpa"))
+    Research = eval(request.form.get("research"))
 
     url = "predict_admission.csv"
     df = pd.read_csv(url)
