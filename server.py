@@ -17,12 +17,13 @@ def predict():
     cgpa = eval(request.form.get("cgpa"))
     research = eval(request.form.get("research"))
 
+
     # Load the loan dataset
-    df = pd.read_csv('admission.csv')
+    df = pd.read_csv('predict_admission.csv')
 
     # Prepare the data
-    X = df[['gender', 'married', 'education', 'self_employed', 'credit_history', 'property_area']]
-    y = df['loan_status']
+    X = df[['gre','toefl', 'ur', 'cgpa','research']]
+    y = df['coa']
 
     # Create a random forest classifier model
     model = RandomForestClassifier()
@@ -31,10 +32,10 @@ def predict():
     model.fit(X, y)
 
     # Make prediction on new data
-    new_data = [[gender, married, education, self_employed, credit_history, property_area]]
+    new_data = ([[gre,toefl, ur, cgpa,research]])
     prediction = int(model.predict(new_data)[0])
 
-    return render_template('loan.html', prediction=prediction)
+    return render_template('predict.html', prediction=prediction)
 
 
 if __name__ == '__main__':

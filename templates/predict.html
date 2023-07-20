@@ -12,7 +12,7 @@
       hello form h6
     </h6>
     
-    <form action="/cp" method="post">
+    <form action="/predict" method="POST">
     Enter your GRE_score: <br>
     <input type="text" placeholder="enter ur GRE_score" name="gre" required> <br>
     
@@ -30,11 +30,13 @@
     <input type="text" placeholder="enter ur Research" name="research" required> <br>
    
        <input type="submit" value="submit">
+         
+    </form>
+    <center>
    <h1>
      {{data}}
-      </h1>   
-      
-    </form>
+      </h1>   </center>
+   
     
   </body>
 </html>
