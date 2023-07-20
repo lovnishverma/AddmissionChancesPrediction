@@ -2,5 +2,3 @@ Flask
 pandas
 scikit-learn
 
-
-
